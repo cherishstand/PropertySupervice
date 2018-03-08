@@ -20,9 +20,7 @@ export default {
             payload
         }, {call, put}) {
             yield put({type: 'showLoginButtonLoading'})
-            yield put({type: 'loginSuccess', payload: {
-                
-            }})
+            yield put({type: 'loginSuccess', payload: {}})
         },
         *queryUser({
             payload
