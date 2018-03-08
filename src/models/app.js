@@ -16,6 +16,14 @@ export default {
         }
     },
     effects: {
+        *login({
+            payload
+        }, {call, put}) {
+            yield put({type: 'showLoginButtonLoading'})
+            yield put({type: 'loginSuccess', payload: {
+                
+            }})
+        },
         *queryUser({
             payload
         }, { call, put }) {
@@ -36,6 +44,15 @@ export default {
         }
     },
     reducers: {
+        loginSuccess(state, action) {
+            console.log(action)
+            return {
+                ...state,
+                ...action.payload,
+                login: true,
+                loginButtonLoading: false
+            }
+        },
         showLoading(state) {
             return {
                 ...state,
@@ -52,6 +69,12 @@ export default {
             return {
               ...state,
               login: false
+            }
+        },
+        showLoginButtonLoading(state) {
+            return {
+                ...state,
+                loginButtonLoading: true
             }
         }
     }

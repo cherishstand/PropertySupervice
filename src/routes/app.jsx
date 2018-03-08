@@ -11,7 +11,10 @@ function App ({children, location, dispatch, app}) {
 
     const loginProps = {
         loading,
-        loginButtonLoading
+        loginButtonLoading,
+        onOk (data) {
+            dispatch({type: 'app/login', payload: data})
+        }
     }
 
     const headerProps = {
